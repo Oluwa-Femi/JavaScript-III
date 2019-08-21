@@ -13,26 +13,26 @@
 
   SOLUTION CODE:*/
 
-  function Airplane(name) {
-    this.name = name;
-    this.isFlying = false;
-  }
-  Airplane.prototype.takeOff = function () {
-    this.isFlying = true;
-  }
-  Airplane.prototype.land = function () {
-    this.isFlying = false;
-  }
+function Airplane(name) {
+  this.name = name;
+  this.isFlying = false;
+}
+Airplane.prototype.takeOff = function () {
+  this.isFlying = true;
+}
+Airplane.prototype.land = function () {
+  this.isFlying = false;
+}
 
-  // HOW TO TEST OUR SOLUTION:
+// HOW TO TEST OUR SOLUTION:
 
-  const jumbo = new Airplane('Jumbo');
-  console.log(jumbo.name)              // 'Jumbo'
-  console.log(jumbo.isFlying)          // false
-  jumbo.takeOff();
-  console.log(jumbo.isFlying)          // true
-  jumbo.land();
-  console.log(jumbo.isFlying)          // false
+const jumbo = new Airplane('Jumbo');
+console.log(jumbo.name)              // 'Jumbo'
+console.log(jumbo.isFlying)          // false
+jumbo.takeOff();
+console.log(jumbo.isFlying)          // true
+jumbo.land();
+console.log(jumbo.isFlying)          // false
 
 
 /*
@@ -45,58 +45,66 @@
   - When eating an edible, it should be pushed into a "stomach" property which is an array.
   - Give persons the ability to poop.
   - When pooping, the stomach should empty.*/
-  function Person (name, age){
-    this.name = name;
-    this.age = age;
-    this.canEatEdibles = true;
-    this.canPoop = true;
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.canEatEdibles = true;
+  this.canPoop = true;
+  this.stomach = [];
+}
+Person.prototype.meal = function (edible) {
+  if (this.canEatEdibles) {
+    this.stomach.push(edible);
+  }
+}
+
+Person.prototype.correct = function (edible) {
+  if (this.canPoop) {
     this.stomach = [];
   }
-  Person.prototype.meal = function (edible){
-    if(this.canEatEdibles){
-      this.stomach.push(edible);
-    }
-  }
-  
-  Person.prototype.correct = function (edible){
-    if(this.canPoop){
-      this.stomach = [];
-    }
-  }
- /* TASK 2
+}
+/* TASK 2
 
-  - Build a Car constructor that takes model name and make.
-  - Give cars the ability to drive a distance.
-  - By driving a car, the distance driven should be added to an "odometer" property.
-  - Give cars the ability to crash.
-  - A crashed car can't be driven any more. Attempts return a string "I crashed at x miles!", x being the miles in the odometer.
-  - Give cars the ability to be repaired.
-  - A repaired car can be driven again.*/
-  function Car (model_name, make){
-    this.model = model_name;
-    this.make = make;
-  };
-  Car.prototype.carCrashed = function () {
+ - Build a Car constructor that takes model name and make.
+ - Give cars the ability to drive a distance.
+ - By driving a car, the distance driven should be added to an "odometer" property.
+ - Give cars the ability to crash.
+ - A crashed car can't be driven any more. Attempts return a string "I crashed at x miles!", x being the miles in the odometer.
+ - Give cars the ability to be repaired.
+ - A repaired car can be driven again.*/
+function Car(model_name, make) {
+  this.model = model_name;
+  this.make = make;
+};
+Car.prototype.carCrashed = function () {
   if (this.crash === true) {
-   this.drive = false
-   console.log(`I crashed at x miles!`);
-  }else{
+    this.drive = false
+    console.log(`I crashed at x miles!`);
+  } else {
     return this.drive = true;
   }
 }
 
-  /*TASK 3
+/*TASK 3
 
-  - Build a Baby constructor that subclasses the Person built earlier.
-  - Babies of course inherit the ability to greet, which can be strange.
-  - Babies should have the ability to play, which persons don't.
-  - By playing, a string is returned with some text of your choosing.*/
+- Build a Baby constructor that subclasses the Person built earlier.
+- Babies of course inherit the ability to greet, which can be strange.
+- Babies should have the ability to play, which persons don't.
+- By playing, a string is returned with some text of your choosing.*/
+function Baby(name, age, stomach, greet, play) {
+  Person.call(this, name, age, stomach, greet);
+  this.play = "Baby shark doooooo dooooooo doooo";
+}
+Baby.prototype = Object.create(Dad.prototype);
+var sonny = new Child('Tom', 5, 'trains'); // just copy
+Baby.prototype.play = function () {
+return `playing with ${this.play}`;
 
-  /*TASK 4
+/*TASK 4
 
-  Use your imagination and come up with constructors that allow to build objects
-  With amazing and original capabilities. Build 3 small ones, or a very
-  complicated one with lots of state. Surprise us!
+Use your imagination and come up with constructors that allow to build objects
+With amazing and original capabilities. Build 3 small ones, or a very
+complicated one with lots of state. Surprise us!
 
 */
 
