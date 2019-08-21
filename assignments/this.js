@@ -24,6 +24,8 @@ var me = {
     }
 }
 // Principle 3
+
+// code example for New Binding
 function Players(name, age, position) {
     this.name = name;
     this.age = age;
@@ -32,8 +34,13 @@ function Players(name, age, position) {
   
   let striker = new Players('Lacazette', 'Striker', 28);
   let defender = new Players('Luiz', 'Defender', 32);
-// code example for New Binding
-
 // Principle 4
 
 // code example for Explicit Binding
+function stats(name, age) {
+    return name + ' your age is ' + age; 
+  }
+  
+  stats.call('jolly', 'Femi', 25);
+  stats.apply('jolly', ['Ife', 23]);
+  var copyOfFunction = stats.bind('jolly');
