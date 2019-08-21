@@ -12,7 +12,8 @@
 // Principle 1
 
 // code example for Window Binding
-
+var theClubrules = this;
+var YoungsterDeadline = 23;
 // Principle 2
 
 // code example for Implicit Binding
