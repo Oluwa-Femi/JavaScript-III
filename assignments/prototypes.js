@@ -44,9 +44,26 @@
   - Give persons the ability to eat edibles.
   - When eating an edible, it should be pushed into a "stomach" property which is an array.
   - Give persons the ability to poop.
-  - When pooping, the stomach should empty.
-
-  TASK 2
+  - When pooping, the stomach should empty.*/
+  function Person (name, age){
+    this.name = name;
+    this.age = age;
+    this.canEatEdibles = true;
+    this.canPoop = true;
+    this.stomach = [];
+  }
+  Person.prototype.meal = function (edible){
+    if(this.canEatEdibles){
+      this.stomach.push(edible);
+    }
+  }
+  
+  Person.prototype.correct = function (edible){
+    if(this.canPoop){
+      this.stomach = [];
+    }
+  }
+ /* TASK 2
 
   - Build a Car constructor that takes model name and make.
   - Give cars the ability to drive a distance.
@@ -54,9 +71,9 @@
   - Give cars the ability to crash.
   - A crashed car can't be driven any more. Attempts return a string "I crashed at x miles!", x being the miles in the odometer.
   - Give cars the ability to be repaired.
-  - A repaired car can be driven again.
-
-  TASK 3
+  - A repaired car can be driven again.*/
+ 
+  /*TASK 3
 
   - Build a Baby constructor that subclasses the Person built earlier.
   - Babies of course inherit the ability to greet, which can be strange.
