@@ -24,7 +24,14 @@ var me = {
     }
 }
 // Principle 3
-
+function Players(name, age, position) {
+    this.name = name;
+    this.age = age;
+    this.position = position;
+  }
+  
+  let striker = new Players('Lacazette', 'Striker', 28);
+  let defender = new Players('Luiz', 'Defender', 32);
 // code example for New Binding
 
 // Principle 4
