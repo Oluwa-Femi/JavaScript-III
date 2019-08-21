@@ -16,7 +16,12 @@
 // Principle 2
 
 // code example for Implicit Binding
-
+var me = {
+    club: 'Arsenal Football Club',
+    speak: function () {
+        return this.name;
+    }
+}
 // Principle 3
 
 // code example for New Binding

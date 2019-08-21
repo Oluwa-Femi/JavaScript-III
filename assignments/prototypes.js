@@ -11,7 +11,7 @@
   - If a plane takes off, its "isFlying" property is true.
   - If a plane lands, its "isFlying" property is false.
 
-  SOLUTION CODE:
+  SOLUTION CODE:*/
 
   function Airplane(name) {
     this.name = name;
@@ -24,7 +24,7 @@
     this.isFlying = false;
   }
 
-  HOW TO TEST OUR SOLUTION:
+  // HOW TO TEST OUR SOLUTION:
 
   const jumbo = new Airplane('Jumbo');
   console.log(jumbo.name)              // 'Jumbo'
@@ -33,7 +33,7 @@
   console.log(jumbo.isFlying)          // true
   jumbo.land();
   console.log(jumbo.isFlying)          // false
-*/
+
 
 /*
 
